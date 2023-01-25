@@ -24,7 +24,7 @@ const Running = ({google}) => {
     }
 
     if(activeOrder && activeOrder.errander && !webSocketConnected){
-      let websocketConnection= new WebSocket(`ws://127.0.0.1:8000/errander/${activeOrder.errander.id}/`)
+      let websocketConnection= new WebSocket(`ws://${process.env.REACT_APP_BACKEND_BASE_URL}/ws/errander/${activeOrder.errander.id}/`)
       setWebSocket(websocketConnection)
       setWebSocketConnected(true)
       webSocketRef.current= websocketConnection
